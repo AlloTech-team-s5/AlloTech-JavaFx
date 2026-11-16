@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<!--
+  Panneau "Gestion des categories" (P1).
+  Utilisable seul (iteration 2) ou integre dans la page Parametres de l'admin (P6, iteration 3) :
+      <fx:include source="categories_panel.fxml"/>
+-->
+<VBox spacing="12.0" styleClass="panneau" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.allotech.controller.CategorieController">
+   <padding>
+      <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+   </padding>
+
+   <Label styleClass="titre-panneau" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Gestion des catégories" />
+
+   <TextField fx:id="txtRecherche" promptText="Rechercher une catégorie..." />
+
+   <TableView fx:id="tableCategories" prefHeight="280.0" VBox.vgrow="ALWAYS">
+      <columns>
+         <TableColumn fx:id="colId" maxWidth="80.0" minWidth="50.0" prefWidth="60.0" text="ID" />
+         <TableColumn fx:id="colNom" prefWidth="260.0" text="Nom" />
+         <TableColumn fx:id="colStatut" maxWidth="140.0" minWidth="80.0" prefWidth="100.0" text="Statut" />
+      </columns>
+   </TableView>
+
+   <HBox alignment="CENTER_LEFT" spacing="10.0">
+      <Label text="Nom :" />
+      <TextField fx:id="txtNom" promptText="Ex : Plombier" HBox.hgrow="ALWAYS" />
+      <CheckBox fx:id="chkActif" selected="true" text="Active" />
+   </HBox>
+
+   <HBox alignment="CENTER_LEFT" spacing="10.0">
+      <Button fx:id="btnAjouter" onAction="#ajouter" styleClass="bouton-principal" text="Ajouter" />
+      <Button fx:id="btnModifier" onAction="#modifier" text="Modifier" />
+      <Button fx:id="btnBasculer" onAction="#basculerActif" text="Désactiver" />
+      <Button fx:id="btnSupprimer" onAction="#supprimer" text="Supprimer" />
+      <Button fx:id="btnNouveau" onAction="#nouveau" text="Vider le formulaire" />
+   </HBox>
+
+   <Label fx:id="lblMessage" wrapText="true" />
+</VBox>

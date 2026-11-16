@@ -1,0 +1,22 @@
+# --- ne JAMAIS l'envoyer sur GitHub ---
+config.properties
+
+# --- Maven ---
+target/
+
+# --- Fichiers deposes par les utilisateurs pendant les tests (photos, CV, CIN) ---
+uploads/
+
+# --- IDE ---
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+nbproject/
+
+# --- Systeme ---
+.DS_Store
+Thumbs.db
+*.log
