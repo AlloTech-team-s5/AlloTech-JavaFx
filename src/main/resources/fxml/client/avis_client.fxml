@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.allotech.controller.AvisClientController"
+      spacing="20" style="-fx-background-color: #F4F4F6; -fx-padding: 24;">
+
+    <!-- Formulaire d'ajout d'avis -->
+    <VBox spacing="14" HBox.hgrow="ALWAYS"
+          style="-fx-background-color: #FFFFFF; -fx-background-radius: 14; -fx-padding: 20;">
+        <Label text="Donner un avis"
+               style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #351C4D;"/>
+        <Label text="Disponible uniquement pour une demande acceptée (1 seul avis par demande)."
+               style="-fx-font-size: 12px; -fx-text-fill: #6B6575;"/>
+
+        <Label text="Demande acceptée" style="-fx-font-weight: bold; -fx-text-fill: #351C4D;"/>
+        <ComboBox fx:id="comboDemandesAcceptees" maxWidth="Infinity"
+                  promptText="Sélectionner une demande acceptée"/>
+
+        <Label text="Note (de 1 à 5 étoiles)" style="-fx-font-weight: bold; -fx-text-fill: #351C4D;"/>
+        <HBox spacing="8" alignment="CENTER_LEFT">
+            <Button fx:id="btnNote1" text="★" onAction="#selectionnerNote1"
+                    style="-fx-background-color: #F6D5F7; -fx-text-fill: #351C4D; -fx-font-weight: bold;"/>
+            <Button fx:id="btnNote2" text="★" onAction="#selectionnerNote2"
+                    style="-fx-background-color: #F6D5F7; -fx-text-fill: #351C4D; -fx-font-weight: bold;"/>
+            <Button fx:id="btnNote3" text="★" onAction="#selectionnerNote3"
+                    style="-fx-background-color: #F6D5F7; -fx-text-fill: #351C4D; -fx-font-weight: bold;"/>
+            <Button fx:id="btnNote4" text="★" onAction="#selectionnerNote4"
+                    style="-fx-background-color: #F6D5F7; -fx-text-fill: #351C4D; -fx-font-weight: bold;"/>
+            <Button fx:id="btnNote5" text="★" onAction="#selectionnerNote5"
+                    style="-fx-background-color: #F6D5F7; -fx-text-fill: #351C4D; -fx-font-weight: bold;"/>
+            <Label fx:id="lblNoteSelectionnee" text="5 / 5"
+                   style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #4A1D4A;"/>
+        </HBox>
+
+        <Label text="Commentaire" style="-fx-font-weight: bold; -fx-text-fill: #351C4D;"/>
+        <TextArea fx:id="txtCommentaire" prefRowCount="4" wrapText="true"
+                  promptText="Partagez votre retour sur l'intervention du technicien..."/>
+
+        <Region VBox.vgrow="ALWAYS"/>
+
+        <Button fx:id="btnPublierAvis" text="Publier l'avis" onAction="#publierAvis" maxWidth="Infinity"
+                style="-fx-background-color: #351C4D; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-padding: 10 16; -fx-background-radius: 10;"/>
+    </VBox>
+
+    <!-- Historique des avis donnes -->
+    <VBox spacing="12" prefWidth="360"
+          style="-fx-background-color: #FFFFFF; -fx-background-radius: 14; -fx-padding: 20;">
+        <Label text="Mes avis donnés"
+               style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #351C4D;"/>
+        <ListView fx:id="listAvisDonnes" VBox.vgrow="ALWAYS"/>
+    </VBox>
+
+</HBox>

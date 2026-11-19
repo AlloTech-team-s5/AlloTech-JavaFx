@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.allotech.controller.MessagerieController"
+      spacing="18" style="-fx-background-color: #F4F4F6; -fx-padding: 20;">
+
+    <!-- Colonne gauche : conversations -->
+    <VBox spacing="12" prefWidth="280"
+          style="-fx-background-color: #FFFFFF; -fx-background-radius: 14; -fx-padding: 16;">
+        <Label text="Conversations"
+               style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #351C4D;"/>
+        <ListView fx:id="listConversations" VBox.vgrow="ALWAYS"/>
+    </VBox>
+
+    <!-- Colonne droite : messages + offre de prix -->
+    <VBox spacing="12" HBox.hgrow="ALWAYS"
+          style="-fx-background-color: #FFFFFF; -fx-background-radius: 14; -fx-padding: 16;">
+
+        <!-- Bandeau prix convenu -->
+        <HBox alignment="CENTER_LEFT" spacing="12"
+              style="-fx-background-color: #F6D5F7; -fx-background-radius: 10; -fx-padding: 10 14;">
+            <Label fx:id="lblConversationActive" text="Sélectionnez une conversation"
+                   style="-fx-font-weight: bold; -fx-text-fill: #351C4D;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="lblPrixConvenu" text="Prix convenu : —"
+                   style="-fx-font-weight: bold; -fx-text-fill: #4A1D4A;"/>
+        </HBox>
+
+        <!-- Bloc offre de prix -->
+        <HBox spacing="10" alignment="CENTER_LEFT"
+              style="-fx-background-color: #F4F4F6; -fx-background-radius: 10; -fx-padding: 10;">
+            <TextField fx:id="txtMontantOffre" promptText="Montant en DH (ex: 350)" prefWidth="160"/>
+            <Button text="Proposer un prix" onAction="#proposerOffre"
+                    style="-fx-background-color: #4A1D4A; -fx-text-fill: #FFFFFF; -fx-font-weight: bold;"/>
+            <Label fx:id="lblOffreActive" text="Aucune offre active"
+                   style="-fx-text-fill: #351C4D; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Accepter l'offre" onAction="#accepterOffre"
+                    style="-fx-background-color: #2E7D32; -fx-text-fill: #FFFFFF; -fx-font-weight: bold;"/>
+            <Button text="Refuser l'offre" onAction="#refuserOffre"
+                    style="-fx-background-color: #C62828; -fx-text-fill: #FFFFFF; -fx-font-weight: bold;"/>
+        </HBox>
+
+        <!-- Liste des messages -->
+        <ListView fx:id="listMessages" VBox.vgrow="ALWAYS"/>
+
+        <!-- Saisie message -->
+        <HBox spacing="10">
+            <TextField fx:id="txtMessage" promptText="Écrire un message..." HBox.hgrow="ALWAYS"
+                       onAction="#envoyerMessage"/>
+            <Button text="Envoyer" onAction="#envoyerMessage"
+                    style="-fx-background-color: #351C4D; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-padding: 8 18;"/>
+        </HBox>
+    </VBox>
+
+</HBox>
